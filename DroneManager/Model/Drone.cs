@@ -45,7 +45,7 @@ namespace DroneManager.Model.Drone
         /// </summary>
         private List<Item> _drone_items = null;
 
-        public IDeliveryInformation deliveryInformation;
+        public DeliveryInformation deliveryInformation;
 
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace DroneManager.Model.Drone
 
         public int Max_Items_Capacity => this._max_items_capacity;
 
-        public double Weight_Items_Capacity => this._max_weight_capacity;
+        public double Max_Weight_Capacity => this._max_weight_capacity;
 
         public Drone(
 
@@ -286,6 +286,8 @@ namespace DroneManager.Model.Drone
 
                     throw new InvalidDroneCreationException("Delivery Information and drone_items do not mathc");
                 }
+
+                drone.deliveryInformation = deliveryInformation;
 
                 drone.SetItems(_drone_items);
 

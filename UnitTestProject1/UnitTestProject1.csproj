@@ -60,6 +60,10 @@
       <Project>{7e31b23e-8dcf-490b-a0c1-ca0668fb5350}</Project>
       <Name>DroneManager</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SuCorrientazoDomicilioBussiness\SuCorrientazoDomicilioBussiness.csproj">
+      <Project>{4c0c26cc-c339-4fad-b0dc-11a48af52bf2}</Project>
+      <Name>SuCorrientazoDomicilioBussiness</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -14,7 +14,7 @@ namespace DroneManager.Classes
             return 3;
         }
 
-        public override double GetWeight_Items_Capacity()
+        public override double GetMax_Weight_Drone_Capacity()
         {
             return 0;
         }

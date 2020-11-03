@@ -16,7 +16,7 @@ namespace DroneManager.Classes
 
         public abstract int GetMax_Items_Capacity();
 
-        public abstract double GetWeight_Items_Capacity();
+        public abstract double GetMax_Weight_Drone_Capacity();
 
 
     }

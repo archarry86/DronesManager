@@ -37,7 +37,7 @@ namespace DroneManager.Classes
             //this local implementation will use the generated thread safe number  
 
 
-            Drone drone = new Drone(Serial, this._configuration.GetMax_Items_Capacity(), this._configuration.GetWeight_Items_Capacity());
+            Drone drone = new Drone(Serial, this._configuration.GetMax_Items_Capacity(), this._configuration.GetMax_Weight_Drone_Capacity());
            
             var flag = drones.Add(drone);
 
@@ -52,6 +52,7 @@ namespace DroneManager.Classes
 
         public override void AddItemToaDrone(Item item, string serial)
         {
+            //it would be nice if I validate that any Item  is not been sent in two drones 
 
             var drone = FindDrone(serial);
 
@@ -67,6 +68,23 @@ namespace DroneManager.Classes
 
 
             drone.deliveryInformation = new DeliveryInformation(coordinates, DateTime.Now);
+
+
+        }
+
+        public override void AddDrone(Drone drone)
+        {
+
+            //it would be nice if I validate that any Item  is not been sent in two drones 
+
+            var added = drones.Add(drone);
+
+           
+            if (!added){
+                throw new ArgumentException($"The drone was already added serial {drone.DroneId}");
+            }
+
+        
 
 
         }
