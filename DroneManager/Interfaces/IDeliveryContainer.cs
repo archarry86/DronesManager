@@ -8,7 +8,7 @@ namespace DroneManager.Interfaces
     {
          int Max_Items_Capacity { get; }
 
-         double Weight_Items_Capacity { get; }
+         double Max_Weight_Capacity { get; }
 
 
 

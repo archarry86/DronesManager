@@ -103,6 +103,10 @@ namespace DroneManager.Model
             return other != null && (other == this || (X== other.X && Y == other.Y));
         }
 
+        public override string ToString()
+        {
+            return $"({X},{Y})";
+        }
 
     }
 }

@@ -18,6 +18,12 @@ namespace DroneManager.Classes
         protected HashSet<Drone> drones = new HashSet<Drone>();
 
         protected DroneManaggerConfiguration _configuration = null;
+
+        public DroneManaggerConfiguration Configuration {
+            get {
+                return _configuration;
+            }
+        }
         public AbstractDroneManager()
         {
             this._configuration = new DefaultDroneManaggerConfiguration();
@@ -32,6 +38,10 @@ namespace DroneManager.Classes
         public abstract Drone CreateDrone(String Serial);
 
 
+
+        public abstract void AddDrone(Drone drone);
+
+
         public abstract void AddItemToaDrone(Item item, string Serial);
 
 
@@ -44,7 +54,7 @@ namespace DroneManager.Classes
             if (drone == null)
             {
                 //this hosuld be a type of excpetion
-                throw new Exception($"The Drone {id_drone} has not been found");
+                throw new ArgumentException($"The Drone {id_drone} has not been found");
             }
 
 
@@ -54,6 +64,10 @@ namespace DroneManager.Classes
 
         public int NumberOfDrones() {
             return drones.Count;
+        }
+
+        public IEnumerable<Drone> GetDrones() {
+            return drones;
         }
 
     }

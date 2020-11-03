@@ -9,10 +9,11 @@ namespace DroneManager.Enums
     /// </summary>
     public enum LeterCoordinates
     {
+      
         A,
         I,
         D,
-    
+        _none,
     }
 
 

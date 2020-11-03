@@ -24,7 +24,7 @@ namespace DroneManager.Model
         private CoordinateLetter2D()
         {
 
-            throw new InvalidOperationException();
+          
         }
 
         private CoordinateLetter2D(Vector2dInt position, double angle)

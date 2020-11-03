@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Text;
 using DroneManager.Classes;
 using DroneManager.Enums;
 using DroneManager.Exceptions;
 using DroneManager.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SuCorrientazoDomicilioBussiness.FileManager.Classes;
+using SuCorrientazoDomicilioBussiness.FileManager.Implementations;
 
 namespace UnitTestProject1
 {
@@ -14,6 +18,9 @@ namespace UnitTestProject1
     public class UnitTest1
     {
 
+        private Vector2dInt firstDelivery = new Vector2dInt(-2, 4);
+        private Vector2dInt secondDelivery = new Vector2dInt(-1, 3);
+        private Vector2dInt thirdDelivery = new Vector2dInt(0, 0);
 
         private CoordinateLetter2D[][] coordinates;
 
@@ -109,7 +116,8 @@ namespace UnitTestProject1
             
             CoordinateLetter2D[] list = CreateList(coordinates);
             CoordinateLetter2D lastposition = list.Last();
-            Assert.AreEqual(lastposition.Position, new Vector2dInt(-2, 4));
+            Assert.AreEqual(lastposition.Position, firstDelivery);
+         
             int index = 0;
             this.coordinates[index] = list.ToArray();
 
@@ -130,7 +138,7 @@ namespace UnitTestProject1
           
             list = CreateList(coordinates, lastposition);
             lastposition = list.Last();
-            Assert.AreEqual(lastposition.Position, new Vector2dInt(-1, 3));
+            Assert.AreEqual(lastposition.Position, secondDelivery);
 
             index++;
             this.coordinates[index] = list.ToArray();
@@ -153,13 +161,15 @@ namespace UnitTestProject1
 
             list = CreateList(coordinates, lastposition);
             lastposition = list.Last();
-
-            Assert.AreEqual(lastposition.Position, new Vector2dInt(0, 0));
+          
+            Assert.AreEqual(lastposition.Position,thirdDelivery);
 
             index++;
             this.coordinates[index] = list.ToArray();
 
-         
+            Assert.AreEqual(this.coordinates.Any(p=> p == null || p.Any(sp=> sp ==  null)), false);
+
+
         }
 
         private CoordinateLetter2D[] CreateList(LeterCoordinates[] coordinates, CoordinateLetter2D lastcoordinate = null)
@@ -173,6 +183,7 @@ namespace UnitTestProject1
                 var newCoorinate = new CoordinateLetter2D(letter, lastcoordinate);
                 list[i]=newCoorinate;
                 i++;
+            //parameter reasingnation but I am no generating any crazy side effect
                 lastcoordinate = newCoorinate;
 
 
@@ -270,6 +281,74 @@ namespace UnitTestProject1
 
 
         }
+
+
+        [TestMethod]
+        public void ValidateParseLine()
+        {
+            if (this.coordinates == null )
+                this.ValidateRouteCalulation();
+
+            CoordinateLetter2DReader reader = new CoordinateLetter2DReader();
+            var line = "AAAAIAA";
+
+            var result = reader.read(line, 0);
+
+            Assert.AreEqual(result.Last().Position, new Vector2dInt(-2, 4));
+           
+
+        }
+
+        [TestMethod]
+        public void ValidateFileWritting()
+        {
+            if (this.coordinates == null)
+                this.ValidateRouteCalulation();
+
+
+            DeliveryInformation deliveryInformation = new DeliveryInformation(this.coordinates, DateTime.Now);
+            DroneResultWritter writter = new DroneResultWritter(deliveryInformation);
+
+            StringBuilder builder = new StringBuilder();
+            while (!writter.isDone)
+            {
+                builder.AppendLine(writter.nextNextLine());
+
+
+            }
+
+            String result = String.Join(Environment.NewLine,
+            firstDelivery.ToString(),
+             secondDelivery.ToString(),
+             thirdDelivery.ToString() ) + Environment.NewLine;
+
+            Assert.AreEqual(result ,builder.ToString());
+
+
+        }
+
+
+        [TestMethod]
+        public void ValidateDispatcher()
+        {
+            if (this.coordinates == null)
+                this.ValidateRouteCalulation();
+
+
+            SuCorrientazoDomicilioBussiness.SuCorrientazoDispatcher Dispatcher = new SuCorrientazoDomicilioBussiness.SuCorrientazoDispatcher();
+
+            Dispatcher.LoadDroneInformationToDispatch();
+
+            Assert.AreEqual(1, Dispatcher.DroneManagerInstance.NumberOfDrones());
+
+            Dispatcher.WriteDispatchedDroneInformation();
+
+            FileInfo file = new FileInfo(System.IO.Path.Combine(Dispatcher.directoryWritten, "out01.txt"));
+            Assert.AreEqual(true, file.Exists);
+            Assert.AreNotEqual(file.Length, 0);
+        }
+
+
 
 
 
