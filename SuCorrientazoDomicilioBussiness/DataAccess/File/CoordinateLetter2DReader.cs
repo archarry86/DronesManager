@@ -1,16 +1,19 @@
 ﻿using DroneManager.Enums;
 using DroneManager.Model;
-using SuCorrientazoDomicilioBussiness.FileManager.Interfaces;
+using FileManager.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SuCorrientazoDomicilioBussiness.FileManager.Implementations
+namespace SuCorrientazoDomicilioBussiness.File.DataAccess
 {
     public class CoordinateLetter2DReader : IFileParser<CoordinateLetter2D>
     {
 
+
         private CoordinateLetter2D lastcoordinate = null;
+
+        
 
         public CoordinateLetter2D[] read(string line, int indexline)
         {
@@ -28,7 +31,7 @@ namespace SuCorrientazoDomicilioBussiness.FileManager.Implementations
                 {
 
                     var letter = LeterCoordinates._none;
-
+                   
                     if (Enum.TryParse<LeterCoordinates>(line[index].ToString(), out letter))
                     {
 
@@ -46,5 +49,8 @@ namespace SuCorrientazoDomicilioBussiness.FileManager.Implementations
 
             return readvalues.ToArray();
         }
+
+
+
     }
 }

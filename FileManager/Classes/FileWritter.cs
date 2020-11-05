@@ -1,10 +1,11 @@
-﻿using SuCorrientazoDomicilioBussiness.FileManager.Interfaces;
+﻿
+using FileManager.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace SuCorrientazoDomicilioBussiness.FileManager.Classes
+namespace FileManager.Classes
 {
     public class FileWritter<T> : FileManager
     {
@@ -17,9 +18,9 @@ namespace SuCorrientazoDomicilioBussiness.FileManager.Classes
             }
         }
 
-        public FileWritter(IFileWritter<T> _writter) : this(SuCorrientazoDomicilioBussiness.FileManager.Classes.FileManager.MyDirectoryFilesResult, _writter)
+        public FileWritter(IFileWritter<T> _writter) : this(FileManager.MyDirectoryFilesResult, _writter)
         {
-          
+         
         }
 
 

@@ -59,6 +59,16 @@
         }
       }
     },
+    "D:\\DESARROLLO\\pruebas4n\\DroneManager\\FileManager\\FileManager.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\DESARROLLO\\pruebas4n\\DroneManager\\FileManager\\FileManager.csproj",
+        "projectName": "FileManager",
+        "projectPath": "D:\\DESARROLLO\\pruebas4n\\DroneManager\\FileManager\\FileManager.csproj"
+      },
+      "frameworks": {
+        "net47": {}
+      }
+    },
     "D:\\DESARROLLO\\pruebas4n\\DroneManager\\SuCorrientazoDomicilioBussiness\\SuCorrientazoDomicilioBussiness.csproj": {
       "version": "1.0.1",
       "restore": {
@@ -84,6 +94,9 @@
             "projectReferences": {
               "D:\\DESARROLLO\\pruebas4n\\DroneManager\\DroneManager\\DroneManager.csproj": {
                 "projectPath": "D:\\DESARROLLO\\pruebas4n\\DroneManager\\DroneManager\\DroneManager.csproj"
+              },
+              "D:\\DESARROLLO\\pruebas4n\\DroneManager\\FileManager\\FileManager.csproj": {
+                "projectPath": "D:\\DESARROLLO\\pruebas4n\\DroneManager\\FileManager\\FileManager.csproj"
               }
             }
           }

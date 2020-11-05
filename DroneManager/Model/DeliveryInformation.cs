@@ -21,7 +21,7 @@ namespace DroneManager.Model
 
             Positions = positions;
 
-            if (Positions.Any(p => p == null || p.Any(sp => sp == null) )) {
+            if (Positions.Any(item => item == null || item.Any(subitem => subitem == null) )) {
 
                 throw new ArgumentNullException("All the positions should be diferent of null");
             }

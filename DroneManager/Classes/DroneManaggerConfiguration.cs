@@ -18,6 +18,11 @@ namespace DroneManager.Classes
 
         public abstract double GetMax_Weight_Drone_Capacity();
 
-
+        /// <summary>
+        /// Represents the half length of the maximun disntance 
+        /// to travel
+        /// </summary>
+        /// <returns></returns>
+        public abstract double GetMax_Cordinate_Value();
     }
 }

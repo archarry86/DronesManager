@@ -10,3 +10,5 @@ D:\DESARROLLO\pruebas4n\DroneManager\SuCorrientazoDomicilioBussiness\bin\Debug\n
 D:\DESARROLLO\pruebas4n\DroneManager\SuCorrientazoDomicilioBussiness\obj\Debug\netstandard2.0\SuCorrientazoDomicilioBussiness.csproj.CopyComplete
 D:\DESARROLLO\pruebas4n\DroneManager\SuCorrientazoDomicilioBussiness\obj\Debug\netstandard2.0\SuCorrientazoDomicilioBussiness.dll
 D:\DESARROLLO\pruebas4n\DroneManager\SuCorrientazoDomicilioBussiness\obj\Debug\netstandard2.0\SuCorrientazoDomicilioBussiness.pdb
+D:\DESARROLLO\pruebas4n\DroneManager\SuCorrientazoDomicilioBussiness\bin\Debug\netstandard2.0\FileManager.dll
+D:\DESARROLLO\pruebas4n\DroneManager\SuCorrientazoDomicilioBussiness\bin\Debug\netstandard2.0\FileManager.pdb
