@@ -9,6 +9,11 @@ namespace DroneManager.Classes
     /// </summary>
     internal class DefaultDroneManaggerConfiguration : DroneManaggerConfiguration
     {
+        public override double GetMax_Cordinate_Value()
+        {
+            return 10;
+        }
+
         public override int GetMax_Items_Capacity()
         {
             return 3;

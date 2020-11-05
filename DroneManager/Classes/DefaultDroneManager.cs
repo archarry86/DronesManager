@@ -67,7 +67,7 @@ namespace DroneManager.Classes
 
 
 
-            drone.deliveryInformation = new DeliveryInformation(coordinates, DateTime.Now);
+            drone.DeliveryInformation = new DeliveryInformation(coordinates, DateTime.Now);
 
 
         }
@@ -87,6 +87,39 @@ namespace DroneManager.Classes
         
 
 
+        }
+
+ 
+        public override (CoordinateLetter2D[] , Item ) GetItemRoute(String serial, int index)
+        {
+
+            Drone drone = FindDrone(serial);
+
+            CoordinateLetter2D[] route = drone.DeliveryInformation.Positions[index];
+            var item =  drone.GetItem(index);
+
+            return (route, item);
+        }
+
+        public override bool ValidateDroneItemRoute(String serial, int itemIndex)
+        {
+
+            if (this.Configuration.GetMax_Cordinate_Value() > 0) {
+                Drone drone = FindDrone(serial);
+                var lastitem = drone.DeliveryInformation.Positions[itemIndex].Last();
+
+                //validation within an square
+                return
+                    Math.Abs( lastitem.Position.X) <= this.Configuration.GetMax_Cordinate_Value() 
+                    &&
+                      Math.Abs(lastitem.Position.Y) <= this.Configuration.GetMax_Cordinate_Value()
+                    ;
+
+            }
+            else {
+                return true;
+            }
+            
         }
     }
 }

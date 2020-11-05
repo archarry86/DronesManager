@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace SuCorrientazoDomicilioBussiness.FileManager.Classes
+namespace FileManager.Classes
 {
     public abstract class FileManager
     {

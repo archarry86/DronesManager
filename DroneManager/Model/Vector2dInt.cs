@@ -6,10 +6,10 @@ namespace DroneManager.Model
 {
     public class Vector2dInt:IEquatable<Vector2dInt>
     {
-        public static Vector2dInt zero = new Vector2dInt(0, 0);
-        public static Vector2dInt up = new Vector2dInt(0, 1);
-        public static Vector2dInt down = new Vector2dInt(0, -1);
-        public static Vector2dInt left = new Vector2dInt(-1, 0);
+        public static Vector2dInt Zero = new Vector2dInt(0, 0);
+        public static Vector2dInt Up = new Vector2dInt(0, 1);
+        public static Vector2dInt Down = new Vector2dInt(0, -1);
+        public static Vector2dInt Left = new Vector2dInt(-1, 0);
         public static Vector2dInt Right = new Vector2dInt(1, 0);
 
         public int X { get; private set; }
@@ -32,6 +32,9 @@ namespace DroneManager.Model
 
         public static Vector2dInt operator +(Vector2dInt a, Vector2dInt b)
        => new Vector2dInt(a.X+ b.X, a.Y+b.Y);
+
+        public static Vector2dInt operator -(Vector2dInt a, Vector2dInt b)
+     => new Vector2dInt(a.X - b.X, a.Y - b.Y);
 
 
         public  Vector2dInt Rotate(  double degrees)
@@ -59,6 +62,21 @@ namespace DroneManager.Model
            return angle;
         }
 
+
+        public double YAngle()
+        {
+            double radians = Math.Atan2( X, Y);
+            double angle = radians * (180 / Math.PI);
+
+
+            if (angle < 0)
+                angle += 360;
+
+            angle = angle % 360;
+
+            return angle;
+        }
+
         public static Vector2dInt VectorFromAngle(double angle) {
 
             double rad = angle * (Math.PI / 180) % 360;
@@ -66,7 +84,16 @@ namespace DroneManager.Model
         }
 
 
-        public  Vector2dInt CalculateNormal() {
+        public static Vector2dInt VectorFromYAngle(double angle)
+        {
+
+            double rad = angle * (Math.PI / 180) % 360;
+            return new Vector2dInt( (int)Math.Sin(rad), (int)Math.Cos(rad));
+        }
+
+
+
+        public Vector2dInt CalculateNormal() {
 
 
 
@@ -107,6 +134,18 @@ namespace DroneManager.Model
         {
             return $"({X},{Y})";
         }
+
+        public override int GetHashCode()
+        {
+
+            int hash = 130;
+
+            hash = hash * 433 + X.GetHashCode();
+            hash = hash * 433 + Y.GetHashCode();
+            return hash;
+
+        }
+
 
     }
 }

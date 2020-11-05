@@ -9,7 +9,7 @@ using System.Text;
 
 namespace DroneManager.Model.Drone
 {
-    public class Drone:IEquatable<Drone>, IDroneIdentificator, IDeliveryContainer
+    public class Drone : IEquatable<Drone>, IDroneIdentificator, IDeliveryContainer
     {
 
      
@@ -45,7 +45,7 @@ namespace DroneManager.Model.Drone
         /// </summary>
         private List<Item> _drone_items = null;
 
-        public DeliveryInformation deliveryInformation;
+        public DeliveryInformation DeliveryInformation { get;  set; }
 
 
         /// <summary>
@@ -236,7 +236,7 @@ namespace DroneManager.Model.Drone
 
             }
 
-            if (index >= deliveryInformation.Positions.Length)
+            if (index >= DeliveryInformation.Positions.Length)
             {
 
                 //This message should be  in a .lang file in order to manage multi culture
@@ -245,10 +245,29 @@ namespace DroneManager.Model.Drone
             }
 
 
-            return deliveryInformation.Positions[index];
+            return DeliveryInformation.Positions[index];
 
 
         }
+
+        public override int GetHashCode()
+        {
+
+            int hash = 129;
+
+            hash = hash * 563 + _drone_id.GetHashCode();
+
+            return hash;
+
+        }
+
+
+
+        public Item GetItem(int index)
+        {
+            return _drone_items[index];
+        }
+
 
     }
 
@@ -287,7 +306,7 @@ namespace DroneManager.Model.Drone
                     throw new InvalidDroneCreationException("Delivery Information and drone_items do not mathc");
                 }
 
-                drone.deliveryInformation = deliveryInformation;
+                drone.DeliveryInformation = deliveryInformation;
 
                 drone.SetItems(_drone_items);
 
@@ -298,6 +317,9 @@ namespace DroneManager.Model.Drone
             return drone;
         
         }
+
+
+
 
 
     }

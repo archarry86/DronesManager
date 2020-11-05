@@ -1,13 +1,16 @@
-﻿using SuCorrientazoDomicilioBussiness.FileManager.Interfaces;
+﻿
+using FileManager.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace SuCorrientazoDomicilioBussiness.FileManager.Classes
+namespace FileManager.Classes
 {
     public abstract class FileReader<T> : FileManager
     {
+        private string directorypath;
+      
         public FileReader(String directorypath, IFileParser<T> parser) : base(directorypath)
         {
             this.parser = parser;
@@ -17,11 +20,10 @@ namespace SuCorrientazoDomicilioBussiness.FileManager.Classes
             }
         }
 
-        public FileReader(IFileParser<T> parser) : this(SuCorrientazoDomicilioBussiness.FileManager.Classes.FileManager.MyDirectoryFiles, parser)
+        public FileReader(IFileParser<T> parser) : this(FileManager.MyDirectoryFiles, parser)
         {
            
         }
-
 
 
         public IFileParser<T> parser { get; protected set; }

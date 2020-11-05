@@ -70,7 +70,26 @@ namespace DroneManager.Classes
             return drones;
         }
 
+        /// <summary>
+        /// There is no implicit realtion between the item that the Dron Carry and the information to deliver
+        /// But both are set in the same index of a two diferent collecitons as a result I create this method
+        /// to get the item an the route to deliver it
+        /// </summary>
+        /// <param name="serial"></param>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public abstract  (CoordinateLetter2D[], Item) GetItemRoute(String serial, int index);
+
+
+        /// <summary>
+        /// The drone is not supposed to go far than a certain distance
+        /// Validate that the abosolute value of cordinates to deliver  the item
+        /// if the configuration was set
+        /// </summary>
+        /// <param name="itemIndex"></param>
+        /// <returns></returns>
+        public abstract bool ValidateDroneItemRoute(String serial ,int itemIndex);
     }
 
-    
+
 }

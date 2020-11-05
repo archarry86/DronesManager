@@ -7,9 +7,10 @@
   "targets": {
     ".NETStandard,Version=v2.0": {},
     ".NETStandard,Version=v2.0/": {
-      "SuCorrientazoDomicilioBussiness/1.0.0": {
+      "SuCorrientazoDomicilioBussiness/1.0.1": {
         "dependencies": {
           "DroneManager": "1.0.1",
+          "FileManager": "1.0.0",
           "NETStandard.Library": "2.0.3"
         },
         "runtime": {
@@ -26,11 +27,16 @@
         "runtime": {
           "DroneManager.dll": {}
         }
+      },
+      "FileManager/1.0.0": {
+        "runtime": {
+          "FileManager.dll": {}
+        }
       }
     }
   },
   "libraries": {
-    "SuCorrientazoDomicilioBussiness/1.0.0": {
+    "SuCorrientazoDomicilioBussiness/1.0.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -50,6 +56,11 @@
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
     },
     "DroneManager/1.0.1": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FileManager/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

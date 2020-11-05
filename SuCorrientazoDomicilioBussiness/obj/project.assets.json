@@ -35,6 +35,15 @@
         "runtime": {
           "bin/placeholder/DroneManager.dll": {}
         }
+      },
+      "FileManager/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/FileManager.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FileManager.dll": {}
+        }
       }
     }
   },
@@ -187,11 +196,17 @@
       "type": "project",
       "path": "../DroneManager/DroneManager.csproj",
       "msbuildProject": "../DroneManager/DroneManager.csproj"
+    },
+    "FileManager/1.0.0": {
+      "type": "project",
+      "path": "../FileManager/FileManager.csproj",
+      "msbuildProject": "../FileManager/FileManager.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "DroneManager >= 1.0.1",
+      "FileManager >= 1.0.0",
       "NETStandard.Library >= 2.0.3"
     ]
   },
@@ -223,6 +238,9 @@
           "projectReferences": {
             "D:\\DESARROLLO\\pruebas4n\\DroneManager\\DroneManager\\DroneManager.csproj": {
               "projectPath": "D:\\DESARROLLO\\pruebas4n\\DroneManager\\DroneManager\\DroneManager.csproj"
+            },
+            "D:\\DESARROLLO\\pruebas4n\\DroneManager\\FileManager\\FileManager.csproj": {
+              "projectPath": "D:\\DESARROLLO\\pruebas4n\\DroneManager\\FileManager\\FileManager.csproj"
             }
           }
         }

@@ -6,3 +6,4 @@ D:\DESARROLLO\pruebas4n\DroneManager\DroneManager\obj\Debug\netstandard2.0\Drone
 D:\DESARROLLO\pruebas4n\DroneManager\DroneManager\obj\Debug\netstandard2.0\DroneManager.csproj.CoreCompileInputs.cache
 D:\DESARROLLO\pruebas4n\DroneManager\DroneManager\obj\Debug\netstandard2.0\DroneManager.dll
 D:\DESARROLLO\pruebas4n\DroneManager\DroneManager\obj\Debug\netstandard2.0\DroneManager.pdb
+D:\DESARROLLO\pruebas4n\DroneManager\DroneManager\obj\Debug\netstandard2.0\DroneManager.csprojAssemblyReference.cache

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SuCorrientazoDomicilioBussiness.FileManager.Interfaces
+namespace FileManager.Interfaces
 {
     public interface IFileWritter<T>
     {

@@ -115,3 +115,5 @@ D:\DESARROLLO\pruebas4n\DroneManager\UnitTestProject1\obj\Debug\UnitTestProject1
 D:\DESARROLLO\pruebas4n\DroneManager\UnitTestProject1\obj\Debug\UnitTestProject1.pdb
 D:\DESARROLLO\pruebas4n\DroneManager\UnitTestProject1\bin\Debug\SuCorrientazoDomicilioBussiness.dll
 D:\DESARROLLO\pruebas4n\DroneManager\UnitTestProject1\bin\Debug\SuCorrientazoDomicilioBussiness.pdb
+D:\DESARROLLO\pruebas4n\DroneManager\UnitTestProject1\bin\Debug\FileManager.dll
+D:\DESARROLLO\pruebas4n\DroneManager\UnitTestProject1\bin\Debug\FileManager.pdb
